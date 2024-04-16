@@ -186,8 +186,7 @@ public abstract class ParticularObject extends GameObject {
                     if(object.getDamage() > 0){
 
                         // switch state to fey if object die
-                        
-                        
+                                               
                         System.out.println("eat damage.... from collision with enemy........ "+object.getDamage());
                         beHurt(object.getDamage());
                     }                   

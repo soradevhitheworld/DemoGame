@@ -22,7 +22,8 @@ public class ParticularObjectManager {
     public GameWorldState getGameWorld(){
         return gameWorld;
     }
-    
+ 
+    //Synchronization: Các hoạt động trên particularObjects được đồng bộ hóa để đảm bảo an toàn trong môi trường đa luồng.
     public void addObject(ParticularObject particularObject){
         
         

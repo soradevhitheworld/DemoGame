@@ -11,15 +11,15 @@ public class Animation {
     
     private String name;
     
-    private boolean isRepeated;
+    private boolean isRepeated;                //kiểm tra xem animation có lặp lại hay không.
     
     private ArrayList<FrameImage> frameImages;
-    private int currentFrame;
+    private int currentFrame;                  // Chỉ mục của frame hiện tại đang được hiển thị.
     
-    private ArrayList<Boolean> ignoreFrames;
+    private ArrayList<Boolean> ignoreFrames;   // kiểm tra Danh sách các frame mà animation sẽ bỏ qua khi phát
     
     private ArrayList<Double> delayFrames;
-    private long beginTime;
+    private long beginTime;                    //Danh sách thời gian trễ giữa các frame
 
     private boolean drawRectFrame;
     
@@ -49,8 +49,8 @@ public class Animation {
             delayFrames.add(d);
         }
         
-        ignoreFrames = new ArrayList<Boolean>();
-        for(boolean b : animation.ignoreFrames){
+        ignoreFrames = new ArrayList<Boolean>();             //sao chép các giá trị từ danh sách delayFrames của animation khác vào animation hiện tại, 
+        for(boolean b : animation.ignoreFrames){             //đảm bảo rằng các đối tượng Animation không chia sẻ cùng một tham chiếu đến cùng một danh sách
             ignoreFrames.add(b);
         }
         
@@ -120,8 +120,8 @@ public class Animation {
         return frameImages.get(currentFrame).getImage();
     }
     
-    public void Update(long deltaTime){
-        
+    public void Update(long deltaTime){                                         //Kiểm tra xem thời gian đã trôi qua kể từ khi bắt đầu của animation (được lưu trữ trong beginTime) 
+                                                                                //đã vượt quá thời gian trễ giữa các frame hiện tại hay không. Nếu điều kiện này đúng, nghĩa là đã đến lúc chuyển đến frame kế tiếp
         if(beginTime == 0) beginTime = deltaTime;
         else{
             

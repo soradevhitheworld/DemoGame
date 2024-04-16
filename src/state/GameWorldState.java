@@ -76,7 +76,7 @@ public class GameWorldState extends State {
         
         texts1[0] = "We are heros, and our mission is protecting our Home\nEarth....";
         texts1[1] = "There was a Monster from University on Earth in 10 years\n"
-                + "and we lived in the scare in that 10 years....";
+                     + "and we lived in the scare in that 10 years....";
         texts1[2] = "Now is the time for us, kill it and get freedom!....";
         texts1[3] = "      LET'S GO!.....";
         textTutorial = texts1[0];
@@ -124,8 +124,7 @@ public class GameWorldState extends State {
         ParticularObject robotR2 = new RobotR(3400, 350, this);
         robotR2.setTeamType(ParticularObject.ENEMY_TEAM);
         particularObjectManager.addObject(robotR2);
-        
-        
+               
         ParticularObject redeye2 = new RedEyeDevil(2500, 500, this);
         redeye2.setDirection(ParticularObject.LEFT_DIR);
         redeye2.setTeamType(ParticularObject.ENEMY_TEAM);
@@ -141,17 +140,14 @@ public class GameWorldState extends State {
         redeye4.setTeamType(ParticularObject.ENEMY_TEAM);
         particularObjectManager.addObject(redeye4);
         
-
         ParticularObject darkraise3 = new DarkRaise(750, 650, this);
         darkraise3.setTeamType(ParticularObject.ENEMY_TEAM);
         particularObjectManager.addObject(darkraise3);
-        
+       
         ParticularObject robotR3 = new RobotR(1500, 1150, this);
         robotR3.setTeamType(ParticularObject.ENEMY_TEAM);
         particularObjectManager.addObject(robotR3);
-        
-        
-        
+                        
         ParticularObject smallRedGun2 = new SmallRedGun(1700, 980, this);
         smallRedGun2.setDirection(ParticularObject.LEFT_DIR);
         smallRedGun2.setTeamType(ParticularObject.ENEMY_TEAM);
@@ -214,7 +210,7 @@ public class GameWorldState extends State {
                     if(currentSize < textTutorial.length()) currentSize++;
                 }
                 break;
-        }
+          }
     }
     
     private void drawString(Graphics2D g2, String text, int x, int y){
@@ -271,8 +267,7 @@ public class GameWorldState extends State {
         
                 physicalMap.Update();
                 camera.Update();
-                
-                
+                                
                 if(megaMan.getPosX() > finalBossX && finalbossTrigger){
                     finalbossTrigger = false;
                     switchState(TUTORIAL);
@@ -322,11 +317,6 @@ public class GameWorldState extends State {
 
             // NOTE: two lines below make the error splash white screen....
             // need to remove this line
-            //g2.setColor(Color.WHITE);
-            //g2.fillRect(0, 0, GameFrame.SCREEN_WIDTH, GameFrame.SCREEN_HEIGHT);
-            
-            
-            //physicalMap.draw(g2);
             
             switch(state){
                 case INIT_GAME:
@@ -367,8 +357,7 @@ public class GameWorldState extends State {
                     for(int i = 0; i < numberOfLife; i++){
                         g2.drawImage(CacheDataLoader.getInstance().getFrameImage("hearth").getImage(), 20 + i*40, 18, null);
                     }
-                    
-                    
+                                       
                     if(state == GAMEWIN){
                         g2.drawImage(CacheDataLoader.getInstance().getFrameImage("gamewin").getImage(), 300, 300, null);
                     }
@@ -392,6 +381,7 @@ public class GameWorldState extends State {
         return bufferedImage;
     }
 
+    //xử lý điều khiển
     @Override
     public void setPressedButton(int code) {
        switch(code){

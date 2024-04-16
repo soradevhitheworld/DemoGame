@@ -31,8 +31,8 @@ public class CacheDataLoader {
     
     private CacheDataLoader() {}
 
-    public static CacheDataLoader getInstance(){
-        if(instance == null)
+    public static CacheDataLoader getInstance(){            // một phương thức tạo ra và cung cấp truy cập vào thể hiện duy nhất của lớp CacheDataLoader,    	                                                   
+        if(instance == null)                                //đảm bảo tính duy nhất và tái sử dụng của thể hiện trong toàn bộ ứng dụng.
             instance  = new CacheDataLoader();
         return instance;
     }
@@ -203,23 +203,23 @@ public class CacheDataLoader {
             fr = new FileReader(animationfile);
             br = new BufferedReader(fr);
             
-            while((line = br.readLine()).equals(""));
-            int n = Integer.parseInt(line);
+            while((line = br.readLine()).equals(""));    // bỏ qua dòng trống
+            int n = Integer.parseInt(line);              // sau khi đọc được dữ liệu thì chuyển string sang interger
             
             for(int i = 0;i < n; i ++){
                 
                 Animation animation = new Animation();
                 
                 while((line = br.readLine()).equals(""));
-                animation.setName(line);
+                animation.setName(line);                  // gán tên cho một animation dựa trên dữ liệu được đọc từ tệp văn bản
                 
                 while((line = br.readLine()).equals(""));
-                String[] str = line.split(" ");
+                String[] str = line.split(" ");           // phân tách chuỗi bằng dấu ' '.
                 
-                for(int j = 0;j<str.length;j+=2)
-                    animation.add(getFrameImage(str[j]), Double.parseDouble(str[j+1]));
+                for(int j = 0;j<str.length;j+=2)                                                  // duyệt qua mảng. 
+                    animation.add(getFrameImage(str[j]), Double.parseDouble(str[j+1]));           //đối tượng animation được gọi để thêm một frame image và thời gian hiển thị của nó vào trong animation
                 
-                instance.animations.put(animation.getName(), animation);
+                instance.animations.put(animation.getName(), animation);                          // thêm (key,value) vào hashtable
                 
             }
             
@@ -261,8 +261,8 @@ public class CacheDataLoader {
                 while((line = br.readLine()).equals(""));
                 String[] str = line.split(" ");
                 
-                boolean refreshImage = (path == null || !path.equals(str[1]));
-                path = str[1];
+                boolean refreshImage = (path == null || !path.equals(str[1]));  //kiểm tra và cập nhật đường dẫn đến tệp hình ảnh trong quá trình xử lý dữ liệu từ tệp văn bản
+                path = str[1];                                                  // giúp đảm bảo rằng hình ảnh chỉ được tải lại khi đường dẫn mới thực sự khác với đường dẫn hiện tại. 
                 
                 while((line = br.readLine()).equals(""));
                 str = line.split(" ");

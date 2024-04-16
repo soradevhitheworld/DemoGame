@@ -71,8 +71,6 @@ public class BlueFire extends Bullet{
     @Override
     public void attack() {}
 
-
-
 	@Override
 	public void attackBulletNormal() {
 		// TODO Auto-generated method stub
