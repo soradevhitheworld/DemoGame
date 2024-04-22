@@ -13,6 +13,7 @@ public abstract class Button {
 	protected int posX;
 	protected int posY;
 	protected int width;
+	
 	protected int height;
 	protected int paddingTextX;
 	protected int paddingTextY;
